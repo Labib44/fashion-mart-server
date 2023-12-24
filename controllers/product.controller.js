@@ -1,4 +1,4 @@
-const { getProductService, createProductService } = require("../services/product.service")
+const { getProductService, createProductService, getSingleProductService } = require("../services/product.service")
 
 
 // Get products
@@ -18,6 +18,26 @@ exports.getProducts=async(req,res,next)=>{
         })
     }
 }
+// get product by id
+exports.getSingleProduct=async(req,res)=>{
+    try {
+        const productId = req.params.id
+        const products= await getSingleProductService(productId)
+        res.status(200).json({
+            status:"Success",
+            data:products
+        })
+        
+    } catch (error) {
+        res.status(400).json({
+            status:"Field",
+            message:"Can't get the data ",
+            error:error.message
+        })
+    }
+}
+
+
 
 // Post products
 exports.createProduct=async (req, res, next) => {

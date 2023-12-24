@@ -8,6 +8,8 @@ router.route('/')
     .get(productController.getProducts)
     .post(productController.createProduct)
 
-
+//Searching by Product 
+router.route('/:id')
+    .get(productController.getSingleProduct)
 
 module.exports = router;
