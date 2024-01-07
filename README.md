@@ -10,10 +10,8 @@
 
 
 
-## Live : I fetch the problem, that's why i can't deploy server. please, Ran a local server.
+## Live : https://fashion-mart-pyr4.onrender.com/
 
-## Database url
-1. DATABASE=mongodb+srv://mdlabib162:ykMAIcdLBT8fVhGm@fashion-mart.jbsiyrs.mongodb.net/fashionMart
 
 ## Authentication 
 . Firebase
