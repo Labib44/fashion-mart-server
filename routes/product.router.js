@@ -4,9 +4,11 @@ const productController = require('../controllers/product.controller')
 
 
 // Product get & post
-router.route('/')
-    .get(productController.getProducts)
-    .post(productController.createProduct)
+router.route('/').get(productController.getProducts)
+router.route('/').post(productController.createProduct)
+
+
+
 
 //Searching by Product 
 router.route('/:id')

@@ -11,8 +11,23 @@ const productSchema = mongoose.Schema({
         maxLength: [50, "Name is too large"],
     },
     imageUrl: {
-        type: String,
-        required: true
+        
+        img1:{
+            type: String,
+            required: true
+        },
+        img2:{
+            type: String,
+            required: true
+        },
+        img3:{
+            type: String,
+            required: true
+        },
+        img4:{
+            type: String,
+            required: true
+        },
     },
     color: {
         type: String,
@@ -29,30 +44,30 @@ const productSchema = mongoose.Schema({
         min: [0, "Price can't be negative"],
     },
 
-    quantity: {
-        type: Number,
-        required: true,
-        min: [0, "Quantity can be negative"],
-        validate: {
-            validator: (value) => {
-                const isInteger = Number.isInteger(value);
-                if (isInteger) {
-                    return true
-                } else {
-                    return false
-                }
-            }
-        },
-        message: "Quantity must be integer"
-    },
-    status: {
-        type: String,
-        required: true,
-        enum: {
-            values: ["in-stock", "out-of-stock", "discontinued"],
-            message: "Status can't be {VALUE}",
-        }
-    },
+    // quantity: {
+    //     type: Number,
+    //     required: true,
+    //     min: [0, "Quantity can be negative"],
+    //     validate: {
+    //         validator: (value) => {
+    //             const isInteger = Number.isInteger(value);
+    //             if (isInteger) {
+    //                 return true
+    //             } else {
+    //                 return false
+    //             }
+    //         }
+    //     },
+    //     message: "Quantity must be integer"
+    // },
+    // status: {
+    //     type: String,
+    //     required: true,
+    //     enum: {
+    //         values: ["in-stock", "out-of-stock", "discontinued"],
+    //         message: "Status can't be {VALUE}",
+    //     }
+    // },
 
 
 }, {
@@ -63,13 +78,13 @@ const productSchema = mongoose.Schema({
 // Mongooes middelware for saving data: pre / post
 
 // pre method
-productSchema.pre('save', function (next) {
-    console.log('Before saving data');
-    if (this.quantity == 0) {
-        this.status = 'Out-of-stock'
-    }
-    next()
-})
+// productSchema.pre('save', function (next) {
+//     console.log('Before saving data');
+//     if (this.quantity == 0) {
+//         this.status = 'Out-of-stock'
+//     }
+//     next()
+// })
 
 
 
